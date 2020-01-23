@@ -78,10 +78,10 @@ $foundation-palette: (
 $primary: #072E35;
 $secondary: #62747A;
 $green: #417505;
-$blue: #106B9E;
+$blue: #1279B5;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$dark-gray: #737373;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
@@ -174,10 +174,14 @@ $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $enable-code-inline: true;
+
+
 $anchor-color: $blue;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
-$anchor-text-decoration: none;
-$anchor-text-decoration-hover: none;
+$anchor-color-hover: $dark-gray;
+$anchor-text-decoration: underline;
+$anchor-text-decoration-hover: underline;
+
+
 $hr-width: $global-width;
 $hr-border: 1px solid $medium-gray;
 $hr-margin: rem-calc(20) auto;
