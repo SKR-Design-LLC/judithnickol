@@ -15,3 +15,12 @@ require('foundation-sites');
 
 
 $(document).foundation();
+
+$(document).ready(function(){
+    // Back to top-button
+    $('.top-button').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+         return false;
+    });
+
+});

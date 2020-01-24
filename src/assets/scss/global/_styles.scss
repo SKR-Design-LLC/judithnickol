@@ -1,3 +1,4 @@
+// Accessiblilty
 #skiptocontent a {
   position:absolute;
   left:-10000px;
@@ -18,5 +19,99 @@
   }
   &:hover, &:active {
     color: #D6D6D6;
+  }
+}
+
+.screen_reader_accessible {
+  display: none;
+  width:0;
+  height: 0;
+  color: $black;
+  background: $white;
+}
+
+// Headergrid-area: header;
+.nav__container {grid-area: nav__container;}
+.header__title {grid-area: header__title;}
+.header__main {grid-area: header__main;}
+.header__sub_title {grid-area: header__sub_title;}
+.nav__pipe {grid-area: nav__pipe;}
+.nav__menu {grid-area: nav__menu;}
+header {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-row: 2;
+  grid-template-areas:
+  "nav__container header__title"
+  "nav__container header__title"
+  ". header__sub_title";
+
+  .header__title {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row: 2;
+    grid-template-areas:
+    "header__main header__main"
+    ".  header__sub_title";
+    align-self: start;
+  }
+  // should this be a flex item to fill space
+  .header__main_title {
+    align-self: start;
+    h1 {
+      line-height: 1;
+    }
+    span {
+        font-size: 200%;
+        vertical-align: sub;
+    }
+  }
+  .header__sub_title {
+
+  }
+
+  // Menu
+
+  nav {
+    display: grid;
+    grid-template-columns: 10px auto;
+    grid-row: 3;
+    grid-template-areas:
+    "nav__pipe nav__menu"
+    "nav__pipe nav__menu"
+    "nav__pipe nav__menu";
+
+    margin: 1rem;
+    .nav__pipe {
+      color: $secondary;
+    }
+
+    ul.nav__menu {
+      list-style: none;
+      margin: 0;
+      a {
+        color: $anchor-color-hover;
+        &:hover, &:focus, &:active {
+          color: $anchor-color;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+// Footer
+
+footer {
+  font-size: $small-font-size;
+
+  button {
+    margin-top: 3rem;
+  }
+  .top_arrow {
+    display: inline-block;
+    transform: rotate(45deg);
   }
 }
