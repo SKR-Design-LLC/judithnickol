@@ -54,16 +54,34 @@ header {
   }
   // should this be a flex item to fill space
   .header__main_title {
+
+  span {display: inline-block;}
+  .one {grid-area: one;}
+  .two {grid-area: two;}
+  .three {grid-area: three;}
+  .four {grid-area: four;}
+
     border: 1px solid purple;
-    display: flex;
-    justify-content: space-between;
+
     h1 {
       line-height: .70;
       margin: 0;
-    }
-    span {
+
+      display: grid;
+      grid-row: 1;
+      grid-template-columns: 1fr 2fr 1fr 2fr;
+      grid-template-areas:
+      "one two three four";
+
+      span.large {
+        display: inline-block;
         font-size: 200%;
         vertical-align: sub;
+      }
+
+      span.normal {
+
+      }
     }
   }
   .header__sub_title {
