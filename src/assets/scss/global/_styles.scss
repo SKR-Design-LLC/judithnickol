@@ -31,8 +31,12 @@
 }
 
 // Body
+
 body {
-  padding: 4rem;
+  width: 62.5rem; //1000px
+  margin: 0 auto;
+  //padding: 4rem;
+
 }
 // Headergrid-area: header;
 .nav__container {grid-area: nav__container;}
@@ -77,11 +81,17 @@ header {
         display: inline-block;
         font-size: 200%;
         vertical-align: sub;
+        .three {
+          justify-self: end;
+        }
       }
 
       span.normal {
-
+        font-size: 70%;
+        align-self: end;
+        margin-bottom: 1rem;
       }
+
     }
   }
   .header__sub_title {
@@ -97,7 +107,7 @@ header {
       display: block;
       width: 1rem;
       margin-right: 1rem;
-      background-color: $anchor-color-hover;
+      background-color: $secondary;
     }
 
     .nav__menu {
@@ -109,10 +119,11 @@ header {
       margin-top: -.5rem;
       a {
         font-size: 150%;
-        color: $anchor-color-hover;
-        text-decoration-thickness: .5rem;
+        color: $secondary;
+        text-decoration-thickness: .2rem;
         &:hover, &:focus, &:active {
           color: $anchor-color;
+
         }
       }
     }
@@ -120,11 +131,68 @@ header {
 
 }
 
+// Sections
+article {
+  padding: 3rem 0;
 
+  &.about {
+    padding-top: 6rem;
+  }
+}
+
+// Works Section
+article.works {
+  .fig__img {grid-area: image;}
+  .fig__caption {grid-area: caption;}
+  .fig__caption_p {grid-area: para;}
+  .line {grid-area: line;}
+
+
+
+  figure {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1;
+    grid-template-areas:
+    "image caption";
+    align-items: end;
+    grid-column-gap: 1.5rem;
+
+    padding-bottom: 10rem;
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    .fig__caption {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: 1;
+      grid-template-areas:
+      "line para";
+      align-items: end;
+      grid-column-gap: 1rem;
+
+      span.line {
+        justify-self: stretch;
+        display: block;
+        content: " ";
+        background-color: $secondary;
+        width: .50rem;
+        height: 100%;
+      }
+      p {
+        font-size: 80%;
+        margin-bottom: -.50rem;
+      }
+
+    }
+  }
+}
 
 // Footer
 
 footer {
+  padding-top: 6rem;
   font-size: $small-font-size;
 
   button {
