@@ -60,10 +60,10 @@ body {
   .header__main_title {
 
   span {display: inline-block;}
-  .one {grid-area: one; justify-self: end;}
-  .two {grid-area: two;}
-  .three {grid-area: three;}
-  .four {grid-area: four;}
+  .one {grid-area: one; justify-self: end; padding-left: 1rem;}
+  .two {grid-area: two; justify-self: start;}
+  .three {grid-area: three; justify-self: end;}
+  .four {grid-area: four; justify-self: start;}
 
     border: 1px solid purple;
 
@@ -139,6 +139,11 @@ body {
   grid-template-rows: 1;
   align-items: end;
   grid-column-gap: 1rem;
+}
+
+// Main contend area
+main#main_content {
+  padding-right: 1rem;
 }
 
 
