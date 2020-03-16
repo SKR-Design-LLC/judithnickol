@@ -32,11 +32,14 @@
 
 // Body
 body {
-  width: 62.5rem; //1000px
   margin: 0 auto;
-  //padding: 4rem;
+
+  @include breakpoint(large) {
+    width: 62.5rem; //1000px
+  }
 
 }
+
 // Headergrid-area: header;
 .nav__container {grid-area: nav__container;}
 .header__title {grid-area: header__title;}
@@ -46,25 +49,36 @@ body {
 // .nav__menu {grid-area: nav__menu;}
 .header__container {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 25% 75%;
   grid-row: 2;
   grid-template-areas:
   "nav__container header__title"
   ". header__sub_title";
+  margin: 1rem .25rem 0 .25rem;
   border: 1px solid red;
-
+  @include breakpoint(large) {
+    grid-template-columns: 20% 80%;
+    margin-top: 3rem;
+  }
   .header__title {
 
   }
   // should this be a flex item to fill space
   .header__main_title {
     span {display: inline-block;}
-    .one {grid-area: one; justify-self: end; padding-left: 1rem;}
+    .one {
+      grid-area: one;
+      justify-self: end;
+      padding-left: 0;
+      @include breakpoint(large) {
+        padding-left: 1rem;
+      }
+    }
     .two {grid-area: two; justify-self: start;}
     .three {grid-area: three; justify-self: end;}
     .four {grid-area: four; justify-self: start;}
 
-    border: 1px solid purple;
+    border: 1px solid green;
 
     h1 {
       line-height: .70;
@@ -86,33 +100,51 @@ body {
       }
 
       span.normal {
-        font-size: 70%;
+        font-size: 80%;
         align-self: end;
         margin-bottom: 1rem;
+        @include breakpoint(large) {
+          font-size: 70%;
+        }
       }
 
     }
   }
   .header__sub_title {
     justify-self: end;
-    margin-top: -5.75rem;
+    margin-top: -4.75rem;
     border: 1px solid orange;
+
+    @include breakpoint(large) {
+      margin-top: -5.75rem;
+    }
       h2 {
-        font-size: 5.9rem;
+        font-size: 1.9rem;
         margin-bottom: 0;
+
+        @include breakpoint(large) {
+          font-size: 5.9rem;
+        }
       }
   }
 
   // Menu
   nav {
     display: flex;
-    margin: 1.5rem 1rem 2.5rem 1rem;
+    //border: 1px solid purple;
+    @include breakpoint(large) {
+      margin: 1.5rem 1rem 2.5rem 1rem;
+    }
 
     .nav__pipe {
       display: block;
-      width: .40rem;
-      margin-right: 1rem;
+      width: .20rem;
+      margin-right: .5rem;
       background-color: $secondary;
+      @include breakpoint(large) {
+        margin-right: 1rem;
+        width: .40rem;
+      }
     }
 
     .nav__menu {
@@ -123,9 +155,14 @@ body {
       margin: 0;
       margin-top: -.5rem;
       a {
-        font-size: 150%;
+        font-size: 80%;
         color: $secondary;
         text-decoration-thickness: .2rem;
+
+        @include breakpoint(large) {
+          font-size: 150%;
+        }
+
         &:hover, &:focus, &:active {
           color: $anchor-color;
 
@@ -148,7 +185,12 @@ body {
 
 // Main Content Area
 main#main_content {
+
   padding-right: 1rem;
+  @include breakpoint(xsmall up) {
+      width: 16rem; //300px
+      margin: 0 auto;
+    }
 }
 
 

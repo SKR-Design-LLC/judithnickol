@@ -1,27 +1,40 @@
 body {
-    font-size: 175%;
+  font-size: 150%;
+    @include breakpoint(large) {
+      font-size: 175%;
+    }
 }
 
 h1, .h1 {
-    font-size: 5em;
+    font-size: 1.5em;
     color: $primary;
+    @include breakpoint(large) {
+      font-size: 5em;
+    }
 }
 
 h2 {
-    font-size: 4.5em;
+    font-size: 2.5em;
     font-weight: lighter;
+    @include breakpoint(large) {
+      font-size: 4.5em;
+    }
 }
 
 h3 {
-    font-size: 2.25em;
+    font-size: 1.6em;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: .1em;
+    @include breakpoint(large) {
+      font-size: 2.25em;
+    }
 }
 
 h4 {
     font-size: 1.75em;
     text-transform: capitalize;
+    @include breakpoint(large) {}
 }
 
 h5 {
@@ -29,12 +42,14 @@ h5 {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: .15em;
+    @include breakpoint(large) {}
 }
 
 h6 {
     font-size: 1em;
     font-weight: normal;
     letter-spacing: 0px;
+    @include breakpoint(large) {}
 }
 
 sup {
