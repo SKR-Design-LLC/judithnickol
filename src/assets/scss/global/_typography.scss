@@ -8,17 +8,26 @@ body {
 h1, .h1 {
     font-size: 1.5em;
     color: $primary;
+    @include breakpoint(msmall up) {
+      font-size: 1.75em;
+    }
     @include breakpoint(large) {
       font-size: 5em;
     }
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 1.25em;
     font-weight: lighter;
     @include breakpoint(large) {
       font-size: 4.5em;
     }
+    // @include breakpoint(large) {
+    //   font-size: 5.9rem;
+    // }
+    // @include breakpoint(large) {
+    //   font-size: 2.5em;
+    // }
 }
 
 h3 {
@@ -53,7 +62,7 @@ h6 {
 }
 
 sup {
-    font-size: 0.5rem;
+    font-size: 0.5em;
     margin: .5em;
     text-transform: none;
     font-style: italic;
