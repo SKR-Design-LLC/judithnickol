@@ -10,8 +10,7 @@ body {
 
 // Headergrid-area: header;
 .nav__container {grid-area: nav__container;}
-.header__title {grid-area: header__title;}
-// .header__main {grid-area: header__main;}
+//.header__main {grid-area: header__main;}
 .header__sub_title {grid-area: header__sub_title;}
 // .nav__pipe {grid-area: nav__pipe;}
 // .nav__menu {grid-area: nav__menu;}
@@ -23,16 +22,29 @@ body {
   "nav__container header__title"
   ". header__sub_title";
   margin: 1rem .25rem 0 .25rem;
-  border: 1px solid red;
+  //border: 1px solid red;
+  @include breakpoint(lsmall up) {
+    //width: 25rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    width: 85%;
+  }
+
+  // @include breakpoint(medium) {
+  //   margin: 0 auto;
+  //   padding-right: 0;
+  //   width: 85%;
+  // }
+
   @include breakpoint(large) {
+    width: inherit;
     grid-template-columns: 20% 80%;
     margin-top: 3rem;
   }
-  .header__title {
 
-  }
-  // should this be a flex item to fill space
-  .header__main_title {
+  // // should this be a flex item to fill space
+   .header__main_title {
     span {display: inline-block;}
     .one {
       grid-area: one;
@@ -46,23 +58,32 @@ body {
     .three {grid-area: three; justify-self: end;}
     .four {grid-area: four; justify-self: start;}
 
-    border: 1px solid green;
+    //border: 1px solid green;
 
     h1 {
       line-height: .70;
       margin: 0;
       display: grid;
       grid-template-columns: auto auto auto auto;
+      grid-row: 1;
       grid-template-areas:
       "one two three four";
       justify-items: stretch;
       @include breakpoint(msmall up) {
         line-height: 1;
       }
+      @include breakpoint(lsmall up) {
+        line-height: 200%;
+      }
       span.large {
         display: inline-block;
         font-size: 200%;
         vertical-align: sub;
+
+        @include breakpoint(lsmall up) {
+          font-size: 170%;
+        }
+
         .three {
           justify-self: end;
         }
@@ -76,6 +97,9 @@ body {
           font-size: 99%;
           margin-bottom: .5rem;
         }
+        @include breakpoint(lsmall up) {
+          font-size: 130%;
+        }
         @include breakpoint(large) {
           margin-bottom: 1rem;
           font-size: 70%;
@@ -88,14 +112,19 @@ body {
     justify-self: end;
     margin-top: -2rem;
     margin-bottom: 0;
-    border: 1px solid orange;
+    //border: 1px solid orange;
     line-height: 1;
+
     @include breakpoint(msmall up) {
-      margin-top: -12%;//margin-top: -2.7rem;
+      margin-top: -10%;//margin-top: -2.7rem;
+      padding-right: .75rem;
     }
+
     @include breakpoint(large) {
       line-height: 1.5;
-      margin-top: -5.75rem;
+      margin-top: -3.15rem;
+      padding-right: .5rem;
+
     }
       h2 {
         margin-bottom: 0;
