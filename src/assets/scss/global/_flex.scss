@@ -1,0 +1,82 @@
+.one {grid-area: one;}
+.two {grid-area: two;}
+.three {grid-area: three;}
+.four {grid-area: four;}
+
+.one, .two, .three, .four, .header__sub_title {
+  width: max-content;
+}
+.header__title {
+
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row: 2;
+  grid-template-areas:
+  "one two three four"
+  ". . . header__sub_title";
+  //justify-items: stretch;
+
+    span {
+      display: block;
+    }
+
+    .one {
+        padding-left: 0;
+        @include breakpoint(large) {
+          padding-left: 1rem;
+        }
+      }
+
+    .normal {
+      justify-self: start;
+      margin: 0;
+      line-height: 1.8;
+
+        // @include breakpoint(msmall up) {
+        //   font-size: 99%;
+        //   margin-bottom: .5rem;
+        // }
+        // @include breakpoint(lsmall up) {
+        //   font-size: 130%;
+        // }
+        @include breakpoint(large) {
+
+          font-size: 60%;
+        }
+    }
+
+    .large {
+      justify-self: end;
+      font-size: 160%;
+          @include breakpoint(msmall up) {
+            line-height: 1;
+          }
+          @include breakpoint(lsmall up) {
+            line-height: 116%;
+          }
+          @include breakpoint(large) {
+
+          }
+    }
+
+    .header__sub_title {
+      color: $secondary;
+      font-size: 50%;
+      border: 1px solid orange;
+      line-height: 1;
+      margin-bottom: 0;
+      margin-top: -2rem;
+        // margin-bottom: 0;
+        // @include breakpoint(msmall up) {
+        //   margin-top: -10%;//margin-top: -2.7rem;
+        //   padding-right: .75rem;
+        // }
+        //
+        // @include breakpoint(large) {
+        //   line-height: 1.5;
+        //   margin-top: -3.15rem;
+        //   padding-right: .5rem;
+        //
+        // }
+    }
+}
