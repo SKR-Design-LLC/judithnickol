@@ -1,193 +1,122 @@
 // Body
+header {grid-area:header;}
+#main_content {grid-area:main;}
+footer {grid-area:footer;}
+
 body {
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: auto;
+  grid-template-areas:
+  ". header ."
+  ". main ."
+  ". footer .";
+  margin: 0 .25rem;
 
   @include breakpoint(large) {
-    width: 62.5rem; //1000px
+    grid-template-columns: auto 62.5rem auto;
   }
-
 }
 
 // Headergrid-area: header;
-.nav__container {grid-area: nav__container;}
-.header__title {grid-area: header__title;}
-.header__sub_title {grid-area: header__sub_title;}
-// .nav__pipe {grid-area: nav__pipe;}
-// .nav__menu {grid-area: nav__menu;}
+.nav__container {grid-area: nav;}
+.header__title {grid-area: title;}
 
 .header__container {
   display: grid;
-  grid-template-columns: 28% 72%;
-  grid-row: 2;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: auto;
   grid-template-areas:
-  "nav__container header__title"
-  "nav__container header__title";
-  margin: 1rem .25rem 0 .25rem;
-  //border: 1px solid red;
-  // @include breakpoint(lsmall up) {
-  //   //width: 25rem;
-  //   margin-right: auto;
-  //   margin-left: auto;
-  //   padding-right: 0;
-  //   width: 85%;
-  // }
+  "nav title";
+  margin: 0 .25rem;
+}
 
-  // @include breakpoint(medium) {
-  //   margin: 0 auto;
-  //   padding-right: 0;
-  //   width: 85%;
-  // }
+// Menu
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  margin: 40% 0 10% 0;
+}
 
-  // @include breakpoint(large) {
-  //   width: inherit;
-  //   grid-template-columns: 20% 80%;
-  //   margin-top: 3rem;
-  // }
+.nav__pipe {
+  display: block;
+  width: .40rem;
+  background-color: $secondary;
+}
 
-  // // // should this be a flex item to fill space
-  //  .header__main_title {
-  //   span {display: inline-block;}
-  //   .one {
-  //     grid-area: one;
-  //     justify-self: end;
-  //     padding-left: 0;
-  //     @include breakpoint(large) {
-  //       padding-left: 1rem;
-  //     }
-  //   }
-  //   .two {grid-area: two; justify-self: start;}
-  //   .three {grid-area: three; justify-self: end;}
-  //   .four {grid-area: four; justify-self: start;}
-  //
-  //   //border: 1px solid green;
-  //
-  //   h1 {
-  //     line-height: .70;
-  //     margin: 0;
-  //     display: grid;
-  //     grid-template-columns: auto auto auto auto;
-  //     grid-row: 1;
-  //     grid-template-areas:
-  //     "one two three four";
-  //     justify-items: stretch;
-  //     @include breakpoint(msmall up) {
-  //       line-height: 1;
-  //     }
-  //     @include breakpoint(lsmall up) {
-  //       line-height: 200%;
-  //     }
-  //     span.large {
-  //       display: inline-block;
-  //       font-size: 200%;
-  //       vertical-align: sub;
-  //
-  //       @include breakpoint(lsmall up) {
-  //         font-size: 170%;
-  //       }
-  //
-  //       .three {
-  //         justify-self: end;
-  //       }
-  //     }
-  //
-  //     span.normal {
-  //       font-size: 80%;
-  //       align-self: end;
-  //
-  //       @include breakpoint(msmall up) {
-  //         font-size: 99%;
-  //         margin-bottom: .5rem;
-  //       }
-  //       @include breakpoint(lsmall up) {
-  //         font-size: 130%;
-  //       }
-  //       @include breakpoint(large) {
-  //         margin-bottom: 1rem;
-  //         font-size: 70%;
-  //       }
-  //     }
-  //
-  //   }
-  // }
-  // .header__sub_title {
-  //   justify-self: end;
-  //   margin-top: -2rem;
-  //   margin-bottom: 0;
-  //   //border: 1px solid orange;
-  //   line-height: 1;
-  //
-  //   @include breakpoint(msmall up) {
-  //     margin-top: -10%;//margin-top: -2.7rem;
-  //     padding-right: .75rem;
-  //   }
-  //
-  //   @include breakpoint(large) {
-  //     line-height: 1.5;
-  //     margin-top: -3.15rem;
-  //     padding-right: .5rem;
-  //
-  //   }
-  //     h2 {
-  //       margin-bottom: 0;
-  //     }
-  // }
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  margin:0;
+  padding-left: 1rem;
 
-  // Menu
-  nav {
-    display: flex;
-    //border: 1px solid purple;
-    @include breakpoint(large) {
-      margin: 1.5rem 1rem 2.5rem 1rem;
-    }
-
-    .nav__pipe {
-      display: block;
-      width: .30rem;
-      margin-right: .5rem;
-      background-color: $secondary;
-      @include breakpoint(large) {
-        margin-right: 1rem;
-        width: .40rem;
-      }
-    }
-
-    .nav__menu {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      list-style: none;
-      margin: 0;
-      margin-top: -.5rem;
-      li {
-          line-height: 2rem;
-        @include breakpoint(msmall up) {
-          line-height: 2.25rem;
-        }
-      }
-      a {
-        font-size: 90%;
-        color: $secondary;
-        text-decoration-thickness: .2rem;
-        @include breakpoint(large) {
-          font-size: 150%;
-        }
-
-        &:hover, &:focus, &:active {
-          color: $anchor-color;
-
-        }
-      }
+  li {
+    line-height: 1.4;
+    &:first-child {
+      margin-top: -1rem;
     }
   }
 
+  li a {
+    font-size: 155%;
+    color: $secondary;
+    text-decoration-thickness: .15rem;
+      &:hover, &:focus, &:active {
+        color: $anchor-color;
+      }
+  }
 }
 
-// Sections
-// title line grid base
-.title_line_grid_base {
+.one, .two, .three, .four, .five {
+  color: $primary;
+  line-height:1.1;
+  width: max-content;
+}
+.one{ grid-area: one;}
+.two{grid-area: two;}
+.three{grid-area: three;}
+.four{grid-area: four;}
+.five {grid-area: five;}
+
+.header__title {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: 1;
-  align-items: end;
-  grid-column-gap: 1rem;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas:
+  "one . three ."
+  "one two three four"
+  "one . three five";
+  width: min-content;
+  margin:0;
+}
+
+.one, .three {
+  font-size: 266%;
+  padding-left: 2rem;
+  justify-self: end;
+}
+
+.two {
+  margin-left: -.5rem;
+  padding-right: 2rem;
+}
+
+.two, .four {
+  align-self: end;
+}
+.one, .three, .four {
+  justify-self: stretch;
+}
+
+.five {
+  color: $secondary;
+  font-size: 5rem;
+  letter-spacing: .1rem;
+  align-self: start;
+  margin-left: -8%;
+  margin-top: -10%;
 }

@@ -3,18 +3,14 @@ footer {
   padding: 0 0 1rem 0;
   font-size: $small-font-size;
 
-  @include breakpoint(small up) {
-    margin: 0 auto;
-    width: 85%;
-  }
   @include breakpoint(large) {
-    padding-top: 6rem;
+    padding-top: 3rem;
   }
 
   button {
-    margin: 3rem 0 1rem 0;
+    margin: 3rem 0 2rem 0;
   }
-  
+
   .top_arrow {
     display: inline-block;
     transform: rotate(45deg);
