@@ -1,6 +1,7 @@
 // Main Content Area
 main#main_content {
   padding-right: 0;
+  border:2px solid lightgreen;
 }
 
 // Sections
@@ -22,7 +23,7 @@ article {
 
   &.about {
     @include breakpoint(large) {
-      padding-top: 6rem;
+      padding: 6rem 2.5rem 0 2.5rem;
     }
   }
 
