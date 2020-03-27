@@ -22,8 +22,8 @@ article {
   }
 
   &.about {
-    @include breakpoint(large) {
-      padding: 6rem 2.5rem 0 2.5rem;
+    @include breakpoint(msmall up) {
+      padding: 10% 5% 0 5%;
     }
   }
 

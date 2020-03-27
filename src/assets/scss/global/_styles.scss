@@ -5,14 +5,18 @@ footer {grid-area:footer;}
 
 body {
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 2% 96% 2%;
   grid-template-rows: auto;
   grid-template-areas:
   ". header ."
   ". main ."
   ". footer .";
   margin: 0 .25rem;
-  @include breakpoint(large) {
+
+  @include breakpoint(medium) {
+    grid-template-columns: 10% 80% 10%;
+  }
+  @include breakpoint(large only) {
     grid-template-columns: auto 52.5rem auto;
   }
   @include breakpoint(xlarge up) {
@@ -26,7 +30,7 @@ body {
 
 .header__container {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 26% 74%;
   grid-template-rows: auto;
   grid-template-areas:
   "nav title";
@@ -42,13 +46,19 @@ nav {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: stretch;
-  margin: 40% 0 10% 0;
+  margin: 25% 0 10% 0;
+  @include breakpoint(large up) {
+    margin: 40% 0 10% 0;
+  }
 }
 
 .nav__pipe {
   display: block;
-  width: .40rem;
+  width: .30rem;
   background-color: $secondary;
+  @include breakpoint(large up) {
+    width: .40rem;
+  }
 }
 
 .nav__menu {
@@ -57,20 +67,32 @@ nav {
   justify-content: space-between;
   list-style: none;
   margin:0;
-  padding-left: 1rem;
+  padding-left: .5rem;
+  @include breakpoint(large up) {
+    padding-left: 1rem;
+  }
 
   li {
     line-height: 1.4;
     &:first-child {
-      margin-top: -1rem;
+      margin-top: -.4rem;
+      @include breakpoint(large up) {
+          margin-top: -1rem;
+      }
     }
   }
 
   li a {
-    font-size: 155%;
+    font-size: 70%;
     color: $secondary;
-    @include breakpoint(large) {
+    @include breakpoint(medium) {
+      font-size: 90%
+    }
+    @include breakpoint(large only) {
       font-size: 140%;
+    }
+    @include breakpoint(xlarge up) {
+      font-size: 155%;
     }
     text-decoration-thickness: .15rem;
       &:hover, &:focus, &:active {
@@ -100,18 +122,24 @@ nav {
   "one . three five";
   width: min-content;
   margin:0;
-  @include breakpoint(xlarge up) {
-    grid-template-rows: 20% 60% 20%;
-  }
 }
 
 .one, .three {
-  font-size: 266%;
-  padding-left: 2rem;
+  font-size: 236%;
   justify-self: end;
-  @include breakpoint(large) {
-    padding-left: 1rem;
+  @include breakpoint(small only) {
+    line-height: 2;
+  }
+  @include breakpoint(medium) {
     font-size: 236%;
+  }
+  @include breakpoint(large only) {
+    padding-left: 1rem;
+
+  }
+  @include breakpoint(xlarge up) {
+    font-size: 266%;
+    padding-left: 2rem;
   }
 }
 
@@ -128,13 +156,19 @@ nav {
 }
 
 .five {
+  font-size: 2.5rem;
   color: $secondary;
-  font-size: 5rem;
   letter-spacing: .1rem;
   align-self: start;
   margin-left: -8%;
   margin-top: -10%;
-  @include breakpoint(large) {
-
+  @include breakpoint(medium) {
+    font-size: 2.5rem;
+  }
+  @include breakpoint(large only) {
+    font-size: 4.5rem;
+  }
+  @include breakpoint(xlarge up) {
+    font-size: 5rem;
   }
 }
