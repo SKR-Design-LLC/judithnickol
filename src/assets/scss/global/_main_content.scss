@@ -102,6 +102,9 @@ article.works {
   @extend .title_line_grid_base;
   grid-template-areas:
   "line para";
+  @include breakpoint(medium down) {
+    grid-template-columns: 14% 84%;
+  }
 
   span.line {
     @extend .article__header_line;

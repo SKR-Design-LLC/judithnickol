@@ -107,7 +107,7 @@ nav {
 
     text-decoration-thickness: .15rem;
       &:hover, &:focus, &:active {
-        color: $anchor-color;
+        color: $anchor-color-hover;
       }
   }
 }
