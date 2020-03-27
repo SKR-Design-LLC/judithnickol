@@ -12,8 +12,10 @@ body {
   ". main ."
   ". footer .";
   margin: 0 .25rem;
-
   @include breakpoint(large) {
+    grid-template-columns: auto 52.5rem auto;
+  }
+  @include breakpoint(xlarge up) {
     grid-template-columns: auto 62.5rem auto;
   }
 }
@@ -29,6 +31,9 @@ body {
   grid-template-areas:
   "nav title";
   margin: 0 .25rem;
+  @include breakpoint(large up) {
+    grid-template-columns: 20% 80%;
+  }
 }
 
 // Menu
@@ -64,6 +69,9 @@ nav {
   li a {
     font-size: 155%;
     color: $secondary;
+    @include breakpoint(large) {
+      font-size: 140%;
+    }
     text-decoration-thickness: .15rem;
       &:hover, &:focus, &:active {
         color: $anchor-color;
@@ -92,12 +100,19 @@ nav {
   "one . three five";
   width: min-content;
   margin:0;
+  @include breakpoint(xlarge up) {
+    grid-template-rows: 20% 60% 20%;
+  }
 }
 
 .one, .three {
   font-size: 266%;
   padding-left: 2rem;
   justify-self: end;
+  @include breakpoint(large) {
+    padding-left: 1rem;
+    font-size: 236%;
+  }
 }
 
 .two {
@@ -119,4 +134,7 @@ nav {
   align-self: start;
   margin-left: -8%;
   margin-top: -10%;
+  @include breakpoint(large) {
+
+  }
 }

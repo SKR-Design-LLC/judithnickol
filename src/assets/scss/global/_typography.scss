@@ -10,6 +10,9 @@ h1, .h1 {
     //font-size: 6rem;//256px
     font-weight: 500;
     color: $primary;
+    @include breakpoint(large) {
+      font-size: 320%;
+    }
     // @include breakpoint(msmall up) {
     //   font-size: 1.75em;
     // }
