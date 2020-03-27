@@ -1,7 +1,6 @@
 // Main Content Area
 main#main_content {
   padding-right: 0;
-  border:2px solid lightgreen;
 }
 
 // Sections
@@ -99,7 +98,7 @@ article.works {
 .fig__caption {
   @include breakpoint(small only) {
     grid-column-gap: 0;
-    margin-left: 1rem;
+    padding-left: 1rem;
   }
   @extend .title_line_grid_base;
   grid-template-areas:
@@ -107,6 +106,9 @@ article.works {
 
   span.line {
     @extend .article__header_line;
+    @include breakpoint(small only) {
+      margin-right: .5rem;
+    }
   }
 
   p {

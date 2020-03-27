@@ -35,6 +35,13 @@ body {
   grid-template-areas:
   "nav title";
   margin: 0 .25rem;
+  @include breakpoint(small) {
+    grid-template-columns: 100%;
+    grid-template-areas:
+    "title"
+    "nav";
+    margin:0;
+  }
   @include breakpoint(large up) {
     grid-template-columns: 20% 80%;
   }
@@ -46,7 +53,10 @@ nav {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: stretch;
-  margin: 25% 0 10% 0;
+  margin: 1rem 0 0 0;
+  @include breakpoint(medium) {
+    margin: 25% 0 10% 0;
+  }
   @include breakpoint(large up) {
     margin: 40% 0 10% 0;
   }
@@ -56,6 +66,9 @@ nav {
   display: block;
   width: .30rem;
   background-color: $secondary;
+  @include breakpoint(small) {
+    width: .20rem;;
+  }
   @include breakpoint(large up) {
     width: .40rem;
   }
@@ -64,6 +77,10 @@ nav {
 .nav__menu {
   display: flex;
   flex-direction: column;
+  @include breakpoint(small) {
+    flex-direction: row;
+    width: 98%;
+  }
   justify-content: space-between;
   list-style: none;
   margin:0;
@@ -75,7 +92,10 @@ nav {
   li {
     line-height: 1.4;
     &:first-child {
-      margin-top: -.4rem;
+      margin-top:0;
+      @include breakpoint(medium) {
+        margin-top: -.4rem;
+      }
       @include breakpoint(large up) {
           margin-top: -1rem;
       }
@@ -83,7 +103,7 @@ nav {
   }
 
   li a {
-    font-size: 70%;
+    font-size: 100%;
     color: $secondary;
     @include breakpoint(medium) {
       font-size: 90%
@@ -122,14 +142,14 @@ nav {
   "one . three five";
   width: min-content;
   margin:0;
+  @include breakpoint(small) {
+    padding-left:.4rem;
+  }
 }
 
 .one, .three {
-  font-size: 236%;
+  font-size: 220%;
   justify-self: end;
-  @include breakpoint(small only) {
-    line-height: 2;
-  }
   @include breakpoint(medium) {
     font-size: 236%;
   }
@@ -145,7 +165,10 @@ nav {
 
 .two {
   margin-left: -.5rem;
-  padding-right: 2rem;
+  padding-right:.25rem;
+  @include breakpoint(medium up) {
+    padding-right: 2rem;
+  }
 }
 
 .two, .four {
@@ -156,7 +179,7 @@ nav {
 }
 
 .five {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   color: $secondary;
   letter-spacing: .1rem;
   align-self: start;
