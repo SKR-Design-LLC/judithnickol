@@ -3,7 +3,7 @@ footer {
   padding: 0 0 1rem 0;
   font-size: $small-font-size;
 
-  @include breakpoint(large) {
+  @include breakpoint(large up) {
     padding-top: 3rem;
   }
 

@@ -1,6 +1,6 @@
 body {
   font-size: 150%;
-    @include breakpoint(large) {
+    @include breakpoint(large up) {
       font-size: 175%;
     }
 }
@@ -13,32 +13,14 @@ h1, .h1 {
     @include breakpoint(medium) {
       font-size: 210%;
     }
-    @include breakpoint(large only) {
+    @include breakpoint(large up) {
       font-size: 320%;
     }
-    @include breakpoint(xlarge up) {
-      font-size: 345%;
-    }
-    // @include breakpoint(msmall up) {
-    //   font-size: 1.75em;
-    // }
-    // @include breakpoint(lsmall up) {
-    //   font-size: 170%;
-    // }
-
 }
 
 h2 {
     font-size: 4rem;
     font-weight: 500;
-    // @include breakpoint(lsmall up) {
-    //   font-size: 130%;
-    // }
-    // @include breakpoint(large) {
-    //   font-size: 5.9rem;
-    //   or
-    //   font-size: 2.5em;
-    // }
 }
 
 h3 {

@@ -16,12 +16,10 @@ body {
   @include breakpoint(medium) {
     grid-template-columns: 10% 80% 10%;
   }
-  @include breakpoint(large only) {
+  @include breakpoint(large up) {
     grid-template-columns: auto 52.5rem auto;
   }
-  @include breakpoint(xlarge up) {
-    grid-template-columns: auto 62.5rem auto;
-  }
+
 }
 
 // Headergrid-area: header;
@@ -30,20 +28,20 @@ body {
 
 .header__container {
   display: grid;
-  grid-template-columns: 26% 74%;
-  grid-template-rows: auto;
+  grid-template-columns: auto 18.75rem auto;
   grid-template-areas:
-  "nav title";
-  margin: 0 .25rem;
-  @include breakpoint(small) {
-    grid-template-columns: 100%;
+  ". title ."
+  ". nav .";
+  margin:0;
+  grid-template-rows: auto;
+  @include breakpoint(medium) {
+    grid-template-columns: 8.5rem 23.5rem;
     grid-template-areas:
-    "title"
-    "nav";
-    margin:0;
+    "nav title";
+    margin: 0 .25rem;
   }
   @include breakpoint(large up) {
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 11rem 40rem;
   }
 }
 
@@ -66,9 +64,6 @@ nav {
   display: block;
   width: .30rem;
   background-color: $secondary;
-  @include breakpoint(small) {
-    width: .20rem;;
-  }
   @include breakpoint(large up) {
     width: .40rem;
   }
@@ -76,15 +71,16 @@ nav {
 
 .nav__menu {
   display: flex;
-  flex-direction: column;
-  @include breakpoint(small) {
-    flex-direction: row;
-    width: 98%;
-  }
+  flex-direction: row;
+  width: 98%;
   justify-content: space-between;
   list-style: none;
   margin:0;
   padding-left: .5rem;
+  @include breakpoint(medium) {
+    width: inherit;
+    flex-direction: column;
+  }
   @include breakpoint(large up) {
     padding-left: 1rem;
   }
@@ -105,15 +101,10 @@ nav {
   li a {
     font-size: 100%;
     color: $secondary;
-    @include breakpoint(medium) {
-      font-size: 90%
-    }
-    @include breakpoint(large only) {
+    @include breakpoint(large up) {
       font-size: 140%;
     }
-    @include breakpoint(xlarge up) {
-      font-size: 155%;
-    }
+
     text-decoration-thickness: .15rem;
       &:hover, &:focus, &:active {
         color: $anchor-color;
@@ -142,7 +133,7 @@ nav {
   "one . three five";
   width: min-content;
   margin:0;
-  @include breakpoint(small) {
+  @include breakpoint(small only) {
     padding-left:.4rem;
   }
 }
@@ -153,14 +144,11 @@ nav {
   @include breakpoint(medium) {
     font-size: 236%;
   }
-  @include breakpoint(large only) {
+  @include breakpoint(large up) {
     padding-left: 1rem;
 
   }
-  @include breakpoint(xlarge up) {
-    font-size: 266%;
-    padding-left: 2rem;
-  }
+
 }
 
 .two {
@@ -188,10 +176,7 @@ nav {
   @include breakpoint(medium) {
     font-size: 2.5rem;
   }
-  @include breakpoint(large only) {
+  @include breakpoint(large up) {
     font-size: 4.5rem;
-  }
-  @include breakpoint(xlarge up) {
-    font-size: 5rem;
   }
 }

@@ -16,13 +16,14 @@ main#main_content {
 
 article {
   padding: 2rem 0;
-  @include breakpoint(large) {
+  @include breakpoint(large up) {
     padding: 3rem 0;
   }
 
   &.about {
-    @include breakpoint(msmall up) {
-      padding: 10% 5% 0 5%;
+    padding: 2.5rem 5% 0 5%;
+    @include breakpoint(medium up) {
+      padding-top: 4rem;
     }
   }
 
@@ -31,7 +32,8 @@ article {
     .article__header_title {
       grid-area: header_title;
       margin-bottom: -.75rem;
-      @include breakpoint(large) {
+
+      @include breakpoint(large up) {
         margin-bottom: -1rem;
       }
     }
@@ -45,7 +47,7 @@ article {
     grid-column-gap: 1rem;
     margin-bottom: 3rem;
 
-    @include breakpoint(large) {
+    @include breakpoint(large up) {
       grid-column-gap: 1.5rem;
     }
 
@@ -58,7 +60,7 @@ article {
   background-color: $secondary;
   width: .30rem;
   height: 100%;
-  @include breakpoint(large) {
+  @include breakpoint(large up) {
     width: .40rem;
   }
 }
@@ -78,18 +80,15 @@ article.works {
     "caption caption";
     grid-row-gap: 1.5rem;
     padding-bottom: 5rem;
-    @include breakpoint(large) {
+    @include breakpoint(large up) {
       padding-bottom: 10rem;
-    }
-    &:last-child {
-      padding-bottom: 0;
-    }
-
-    @include breakpoint(large) {
       grid-column-gap: 1.5rem;
       grid-template-rows: 1;
       grid-template-areas:
       "image caption";
+    }
+    &:last-child {
+      padding-bottom: 0;
     }
 
   }
