@@ -21,9 +21,9 @@ article {
   }
 
   &.about {
-    padding: 2.5rem 5% 0 5%;
+    padding-top: 2.5rem;
     @include breakpoint(medium up) {
-      padding-top: 4rem;
+      padding-top: 3rem;
     }
   }
 
@@ -67,6 +67,7 @@ article {
 
 // Works Section
 article.works {
+  padding-top: 1.5rem;
   .fig__img {grid-area: image;}
   .fig__caption {grid-area: caption;}
   .fig__caption_p {grid-area: para;}
