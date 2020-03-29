@@ -27,6 +27,12 @@ article {
     }
   }
 
+  figure.contact_image {
+    img {
+      width: 80%;
+    }
+  }
+
   header.article__header {
     .article__header_line {grid-area: header_line;}
     .article__header_title {
@@ -83,63 +89,97 @@ article.works {
   .fig__caption_p {grid-area: para;}
   .line {grid-area: line; justify-self: end;}
 
-  figure {
-    @extend .title_line_grid_base;
-    grid-template-rows: 2;
-    grid-template-areas:
-    "image image"
-    "caption caption";
-    grid-row-gap: 1.5rem;
-    padding-bottom: 5rem;
-    @include breakpoint(large up) {
-      padding-bottom: 10rem;
-      grid-column-gap: 1.5rem;
-      grid-template-rows: 1;
+    figure {
+      @extend .title_line_grid_base;
+      grid-template-columns: auto;
+      grid-template-rows: 2;
       grid-template-areas:
-      "image caption";
+      "image image"
+      "caption caption";
+      grid-row-gap: 1.5rem;
+      padding-bottom: 5rem;
+      @include breakpoint(large up) {
+        grid-template-columns: 70% 30%;
+        padding-bottom: 10rem;
+        grid-column-gap: 1.5rem;
+        grid-template-rows: 1;
+        grid-template-areas:
+        "image caption";
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &.long {
+          grid-template-columns: auto;
+          grid-template-areas:
+          "image"
+          "caption";
+      }
+
+      &.vertical {
+        grid-template-columns: auto;
+        @include breakpoint(medium up) {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+        "image caption";
+        }
+      }
+
     }
-    &:last-child {
-      padding-bottom: 0;
-    }
 
-  }
-}
-
-.fig__caption {
-  margin-top: 1rem;
-  padding-left: 1rem;
-  @include breakpoint(small only) {
-    grid-column-gap: 0;
-    padding-left: .5rem;
-  }
-  @supports (display: grid) {
-    @extend .title_line_grid_base;
-    grid-template-areas:
-    "line para";
-    @include breakpoint(medium down) {
-      grid-template-columns: 14% 84%;
-    }
-  }
-
-
-  span.line {
-    @extend .article__header_line;
-    height: 7rem;
+  .fig__caption {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    margin-left: 1rem;
     @include breakpoint(small only) {
-      margin-right: .5rem;
+      grid-column-gap: 0;
+      padding-left: .5rem;
     }
-    @include breakpoint(large down) {
-      height: 5.3rem;
+    @supports (display: grid) {
+      @extend .title_line_grid_base;
+      grid-template-areas:
+      "line para";
+      @include breakpoint(large up){
+        margin-left: 0;
+      }
+      @include breakpoint(large down) {
+        grid-template-columns: 10px auto;
+      }
+
+      &.long {
+        grid-template-columns: 10px auto;
+        margin-left: 1rem;
+      }
+
+      &.vertical {
+        grid-template-columns: 10px auto;
+        @include breakpoint(msmall down) {
+          margin-left: 1rem;
+        }
+      }
     }
-    @supports (height: 100%) {
-      height: 100%;
+
+
+    span.line {
+      @extend .article__header_line;
+      height: 7rem;
+      @include breakpoint(small only) {
+        margin-right: .5rem;
+      }
+      @include breakpoint(large down) {
+        height: 5.3rem;
+      }
+      @supports (height: 100%) {
+        height: 100%;
+      }
+
+    }
+
+    p {
+      font-size: 80%;
+      margin-bottom: -.50rem;
     }
 
   }
-
-  p {
-    font-size: 80%;
-    margin-bottom: -.50rem;
-  }
-
 }
