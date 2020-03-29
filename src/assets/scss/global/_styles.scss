@@ -4,22 +4,15 @@ header {grid-area:header;}
 footer {grid-area:footer;}
 
 body {
-  display: grid;
-  grid-template-columns: 2% 96% 2%;
-  grid-template-rows: auto;
-  grid-template-areas:
-  ". header ."
-  ". main ."
-  ". footer .";
-  margin: 0 .25rem;
-
+  margin: 0 auto;
+  width: 96%;
+  padding: 0 .25rem;
   @include breakpoint(medium) {
-    grid-template-columns: 10% 80% 10%;
+    width: 80%;
   }
   @include breakpoint(large up) {
-    grid-template-columns: auto 52.5rem auto;
+    width: 52.5rem;
   }
-
 }
 
 // Headergrid-area: header;
@@ -27,22 +20,30 @@ body {
 .header__title {grid-area: title;}
 
 .header__container {
-  display: grid;
-  grid-template-columns: auto 18.75rem auto;
-  grid-template-areas:
-  ". title ."
-  ". nav .";
   margin:0;
-  grid-template-rows: auto;
+  display: inline;
   @include breakpoint(medium) {
-    grid-template-columns: 8.5rem 23.5rem;
-    grid-template-areas:
-    "nav title";
     margin: 0 .25rem;
   }
-  @include breakpoint(large up) {
-    grid-template-columns: 11rem 40rem;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: auto 18.75rem auto;
+    grid-template-areas:
+    ". title ."
+    ". nav .";
+    grid-template-rows: auto;
+    @include breakpoint(medium) {
+      grid-template-columns: 8.5rem 23.5rem;
+      grid-template-areas:
+      "nav title";
+
+    }
+    @include breakpoint(large up) {
+      grid-template-columns: 11rem 40rem;
+    }
   }
+
 }
 
 // Menu
@@ -52,12 +53,17 @@ nav {
   flex-wrap: wrap;
   align-content: stretch;
   margin: 1rem 0 0 0;
-  @include breakpoint(medium) {
-    margin: 25% 0 10% 0;
+  width: max-contents;
+
+  @supports (display: grid) {
+    @include breakpoint(medium) {
+      margin: 25% 0 10% 0;
+    }
+    @include breakpoint(large up) {
+      margin: 40% 0 10% 0;
+    }
   }
-  @include breakpoint(large up) {
-    margin: 40% 0 10% 0;
-  }
+
 }
 
 .nav__pipe {
@@ -77,9 +83,12 @@ nav {
   list-style: none;
   margin:0;
   padding-left: .5rem;
-  @include breakpoint(medium) {
-    width: inherit;
-    flex-direction: column;
+  align-items: baseline;
+  @supports (display: grid) {
+    @include breakpoint(medium) {
+      width: inherit;
+      flex-direction: column;
+    }
   }
   @include breakpoint(large up) {
     padding-left: 1rem;
@@ -124,26 +133,35 @@ nav {
 .five {grid-area: five;}
 
 .header__title {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: 20% 60% 20%;
-  grid-template-areas:
-  "one . three ."
-  "one two three four"
-  "one . three five";
   width: min-content;
   margin:0;
-  @include breakpoint(small only) {
-    padding-left:.4rem;
+  display: inline;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-areas:
+    "one . three ."
+    "one two three four"
+    "one . three five";
+    @include breakpoint(small only) {
+      padding-left:.4rem;
+    }
   }
+
 }
 
 .one, .three {
-  font-size: 220%;
-  justify-self: end;
-  @include breakpoint(medium) {
-    font-size: 236%;
+  font-size: 160%;
+  @supports (display: grid) {
+    font-size: 220%;
+    justify-self: end;
+    @include breakpoint(medium) {
+      font-size: 236%;
+    }
   }
+
   @include breakpoint(large up) {
     padding-left: 1rem;
 
@@ -160,23 +178,43 @@ nav {
 }
 
 .two, .four {
-  align-self: end;
+  @supports (display: grid) {
+    align-self: end;
+  }
 }
 .one, .three, .four {
-  justify-self: stretch;
+  @supports (display: grid) {
+    justify-self: stretch;
+  }
 }
 
 .five {
   font-size: 2.25rem;
   color: $secondary;
-  letter-spacing: .1rem;
-  align-self: start;
-  margin-left: -8%;
-  margin-top: -10%;
+  display: inherit;
+  margin-left: 1rem;
+  @include breakpoint(msmall down) {
+    font-size: 2rem;
+    margin-left: .25rem;
+    @supports (display: grid) {
+      font-size: 2.25rem;
+      margin-left: 1rem;
+    }
+  }
+  @supports (display: grid) {
+    letter-spacing: .1rem;
+    align-self: start;
+    margin-left: -8%;
+    margin-top: -10%;
+  }
   @include breakpoint(medium) {
     font-size: 2.5rem;
   }
   @include breakpoint(large up) {
-    font-size: 4.5rem;
+    font-size: 3rem;
+    @supports (display: grid) {
+      font-size: 4.5rem;
+    }
   }
+
 }

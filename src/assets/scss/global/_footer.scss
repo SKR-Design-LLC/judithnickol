@@ -13,6 +13,9 @@ footer {
 
   .top_arrow {
     display: inline-block;
-    transform: rotate(45deg);
+    transform: rotate(90deg);
+    font-weight: 700;
+    font-size: 200%;
+    vertical-align: sub;
   }
 }
