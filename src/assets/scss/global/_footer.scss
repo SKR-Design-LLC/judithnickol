@@ -3,10 +3,6 @@ footer {
   padding: 0 0 1rem 0;
   font-size: $small-font-size;
 
-  @include breakpoint(large up) {
-    padding-top: 3rem;
-  }
-
   button {
     margin: 3rem 0 2rem 0;
   }
